@@ -13,22 +13,22 @@ class Animal {
         this.#sonido = sonido;
     }
 
-    
-    get nombre() {
+    get Nombre() {
         return this.#nombre
     }
-    get edad() {
+    get Edad() {
         return this.#edad
     }
-    get img() {
+    get Img() {
         return this.#img
     }
-    get comentarios() {
-        return this.#comentarios
-    }
-    get sonido() {
+    get Sonido() {
         return this.#sonido
     }
+    set Comentarios(value) {
+        this.#comentarios = value
+    }
+
 }
 
 class Leon extends Animal {
@@ -63,39 +63,56 @@ class Aguila extends Animal {
         elemento.innerHTML += `${this.nombre} <img src="${this.img}" `
     }
 
-}
+};
 
 let animales = [];
 
-// //IIFE
+//IIFE
 
-// (async () => {
-//     try {
-//         const response = await fetch("animales.json")
-//         if (response.ok === false) {
-//             throw {
-//                 codigo: 600,
-//                 mensaje: "no existen animales"
-//             }
+(async () => {
+    try {
+        const response = await fetch("animales.json")
+        if (response.ok === false) {
+            throw {
+                codigo: 600,
+                mensaje: "no existen animales"
+            }
 
-//         }
-//         const data = await response.json()
-//         animales = data
-//     } catch (error) {
-//         console.log(error)
-//     }
-// })();
+        }
+        const data = await response.json()
+        animales = data.animales
 
-// const animalFormulario = document.querySelector("#animalFormulario")
+    } catch (error) {
+        console.log(error)
+    }
+})();
 
-// animalFormulario.addEventListener("submit", (evento) => {
-//     evento.preventDefault()
+//PROCESAR EL FORM.
 
-//     constAnimal = animales.find((item) => 
-//     item.nombre.toLowerCase() === animalSeleccion.value.toLowerCase())
-   
-//     switch ()
-// } )
+const btnRegistrar = document.querySelector("#btnRegistrar")
+
+btnRegistrar.addEventListener("click", (evento) => {
+    evento.preventDefault()
+    console.log("diste click")
+
+    switch (btnRegistrar.value) {
+        case "leon":
+            const Leon = new Leon("name",
+                "imagen",
+                "sonido")
+            break
+
+    }
+
+
+})
+
+
+
+
+
+
+
 
 
 
