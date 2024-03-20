@@ -89,18 +89,35 @@ let animales = [];
 
 //PROCESAR EL FORM.
 
-const btnRegistrar = document.querySelector("#btnRegistrar")
+const tabla = document.querySelector("#tabla")
+const animal = document.querySelector("#animal")
+const edad = document.querySelector("#edad")
+const comentarios = document.querySelector("#comentarios")
+const btn = document.querySelector("#btnRegistrar")
 
 btnRegistrar.addEventListener("click", (evento) => {
     evento.preventDefault()
     console.log("diste click")
 
-    switch (btnRegistrar.value) {
+    switch (animal.value) {
         case "leon":
-            const Leon = new Leon("name",
-                "imagen",
-                "sonido")
-            break
+            const animalElegido = animales.find((item) => item.name === "leon");
+            const leon = new Animal(animalElegido.name, animalElegido.edad,
+                animalElegido.imagen,
+                animalElegido.sonido);
+            animalElegido.pintarHTML();
+            break;
+
+        case "lobo":
+            const animalElegidoLobo = animales.find((item) => item.name === "lobo");
+            const lobo = new Animal(animalElegidoLobo.name, animalElegidoLobo.edad,
+                animalElegidoLobo.imagen,
+                animalElegidoLobo.sonido);
+            animalElegidoLobo.pintarHTML();
+            break;
+
+
+
 
     }
 
